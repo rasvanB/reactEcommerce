@@ -1,4 +1,16 @@
 .menu-item {
+    &:hover {
+        cursor: pointer;
+        & .background-image {
+            transform: scale(1.1);
+            transition: transform 3s cubic-bezier(0.39, 0.575, 0.565, 1);
+        }
+
+        & .content {
+            opacity: 0.9;
+        }
+    }
+
     min-width: 30%;
     height: 240px;
     flex: 1 1 auto;
@@ -7,8 +19,7 @@
     justify-content: center;
     border: 1px solid black;
     margin: 0 7.5px 15px;
-    background-position: center;
-    background-size: cover;
+    overflow: hidden;
 
     &.large {
         min-width: 40%;
@@ -23,6 +34,12 @@
         margin-left: 7.5px;
     }
 
+    .background-image {
+        height: 100%;
+        width: 100%;
+        background-position: center;
+        background-size: cover;
+    }
     .content {
         height: 90px;
         padding: 0 25px;
@@ -31,6 +48,7 @@
         align-items: center;
         justify-content: center;
         background-color: rgba($color: #0a0a0a, $alpha: 0.8);
+        position: absolute;
         .title {
             font-weight: bold;
             margin-bottom: 6px;
