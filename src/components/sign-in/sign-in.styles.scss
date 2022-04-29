@@ -1,13 +1,18 @@
 .sign-in {
-    max-width: 35vw;
+    width: 460px;
     display: flex;
     flex-direction: column;
+
     .title {
         margin: 10px 0;
     }
 
-    .buttons {
+    .buttons-container {
         display: flex;
         justify-content: flex-start;
+    }
+
+    button {
+        margin-right: 20px;
     }
 }
