@@ -1,6 +1,11 @@
-import firebase from "firebase/compat/app";
-import "firebase/compat/auth";
-import "firebase/compat/firestore";
+import { initializeApp } from "firebase/app";
+import {
+    getAuth,
+    signInWithPopup,
+    GoogleAuthProvider,
+    createUserWithEmailAndPassword,
+} from "firebase/auth";
+import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
 
 const config = {
     apiKey: "AIzaSyBr-M8c-xq0C0xzMeCR7Txk6DEevwrKrmM",
@@ -12,13 +17,44 @@ const config = {
     measurementId: "G-M7V3FCDM2W",
 };
 
-firebase.initializeApp(config);
+const app = initializeApp(config);
 
-export const auth = firebase.auth();
-export const firestore = firebase.firestore();
+const provider = new GoogleAuthProvider();
 
-const provider = new firebase.auth.GoogleAuthProvider();
-provider.setCustomParameters({ prompt: "select_account" });
-export const signInWithGoogle = () => auth.signInWithPopup(provider);
+provider.setCustomParameters({
+    prompt: "select_account",
+});
 
-export default firebase;
+export const auth = getAuth();
+export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
+
+export const db = getFirestore();
+
+export const createUserDocumentFromAuth = async (
+    userAuth,
+    additionalInformation = {}
+) => {
+    const userDocRef = doc(db, "users", userAuth.uid);
+    const userSnapshot = await getDoc(userDocRef);
+    if (!userSnapshot.exists()) {
+        const { displayName, email } = userAuth;
+        const createdAt = new Date();
+
+        try {
+            await setDoc(userDocRef, {
+                displayName,
+                email,
+                createdAt,
+                ...additionalInformation,
+            });
+        } catch (error) {
+            console.log("error creating the user", error.message);
+        }
+    }
+    return userDocRef;
+};
+
+export const createAuthUserWithEmailAndPassword = async (email, password) => {
+    if (!email || !password) return;
+    return await createUserWithEmailAndPassword(auth, email, password);
+};
