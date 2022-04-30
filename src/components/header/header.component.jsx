@@ -2,8 +2,16 @@ import React from "react";
 import "./header.styles.scss";
 import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
-import { auth } from "../../firebase/firebase.utils";
-const Header = ({ currentUser }) => {
+import { signOutUser } from "../../firebase/firebase.utils";
+import { useContext } from "react";
+import { UserContext } from "../../contexts/user.context";
+
+const Header = () => {
+    const { currentUser, setCurrentUser } = useContext(UserContext);
+    const signOutHandler = async () => {
+        const response = await signOutUser();
+        setCurrentUser(null);
+    };
     return (
         <div className="header">
             <Link className="logo-container" to="/">
@@ -17,7 +25,7 @@ const Header = ({ currentUser }) => {
                     CONTACT
                 </Link>
                 {currentUser ? (
-                    <div className="option" onClick={() => auth.signOut()}>
+                    <div className="option" onClick={signOutHandler}>
                         SIGN OUT
                     </div>
                 ) : (
