@@ -1,8 +1,13 @@
 import React from "react";
+import { useContext } from "react";
+import { CartContext } from "../../contexts/cart.context";
 import CustomButton from "../custom-button/custom-button.component";
 import "./collection-item.styles.scss";
 
-const CollectionItem = ({ name, price, imageUrl }) => {
+const CollectionItem = (product) => {
+  const { name, price, imageUrl } = product;
+  const { addItemToCart } = useContext(CartContext);
+  const addProductToCart = () => addItemToCart(product);
   return (
     <div className="collection-item">
       <div
@@ -11,7 +16,9 @@ const CollectionItem = ({ name, price, imageUrl }) => {
           backgroundImage: `url(${imageUrl})`,
         }}
       >
-        <CustomButton isInverted>Add to cart</CustomButton>
+        <CustomButton isInverted onClick={addProductToCart}>
+          Add to cart
+        </CustomButton>
       </div>
       <div className="collection-footer">
         <span className="name">{name}</span>
