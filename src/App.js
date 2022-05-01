@@ -3,6 +3,7 @@ import HomePage from "./pages/homepage/homepage.component";
 import ShopPage from "./pages/shop/shop.component";
 import Header from "./components/header/header.component";
 import SignInPage from "./pages/sign-in-page/sign-in-page.component";
+import CheckoutPage from "./pages/checkout/checkout.component";
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 
@@ -28,6 +29,7 @@ class App extends React.Component {
           <Route exact path="/" element={<HomePage />} />
           <Route exact path="/shop" element={<ShopPage />} />
           <Route exact path="/signin" element={<SignInPage />} />
+          <Route exact path="/checkout" element={<CheckoutPage />}></Route>
         </Routes>
       </div>
     );
