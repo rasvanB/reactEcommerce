@@ -7,6 +7,7 @@ const addCartItem = (cartItems, productToAdd) => {
       item.id === productToAdd.id
         ? {
             ...item,
+
             quantity: item.quantity + 1,
           }
         : item
