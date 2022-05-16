@@ -19,14 +19,14 @@ class App extends React.Component {
 
   componentWillUnmount() {
     this.unsubscribeFromAuth();
-	}
+  }
   render() {
     return (
       <div className="App">
         <Header currentUser={this.state.currentUser}></Header>
         <Routes>
           <Route exact path="/" element={<HomePage />} />
-          <Route exact path="/shop" element={<ShopPage />} />
+          <Route path="/shop/*" element={<ShopPage />} />
           <Route exact path="/signin" element={<SignInPage />} />
           <Route exact path="/checkout" element={<CheckoutPage />}></Route>
         </Routes>

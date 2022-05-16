@@ -17,8 +17,7 @@ class Directory extends React.Component {
         },
         {
           title: "keyboards",
-          imageUrl:
-            "https://d11m57zb51lyt1.cloudfront.net/media/wysiwyg/g413-feature-8.png",
+          imageUrl: "https://d11m57zb51lyt1.cloudfront.net/media/wysiwyg/g413-feature-8.png",
           size: "large",
           id: 4,
           linkUrl: "shop/keyboards",
@@ -28,12 +27,11 @@ class Directory extends React.Component {
           imageUrl:
             "https://cdn1.dotesports.com/wp-content/uploads/2021/07/02160456/https___hybrismediaprod.blob_.core_.windows.net_sys-master-phoenix-images-container_h13_h5d_9081442959390_gigantusV2-prodpg-gallery-1500x1000-hero-1-768x432.jpg",
           id: 1,
-          linkUrl: "shop/pads",
+          linkUrl: "shop/mouse pads",
         },
         {
           title: "headsets",
-          imageUrl:
-            "https://www.techweekmag.com/wp-content/uploads/2021/02/Best-gaming-headsets-2021.jpeg",
+          imageUrl: "https://www.techweekmag.com/wp-content/uploads/2021/02/Best-gaming-headsets-2021.jpeg",
           id: 2,
           linkUrl: "shop/headsets",
         },
@@ -42,7 +40,7 @@ class Directory extends React.Component {
           imageUrl:
             "https://www.ubuy.rw/productimg/?image=aHR0cHM6Ly9tLm1lZGlhLWFtYXpvbi5jb20vaW1hZ2VzL0kvNjFudmlWdHNuREwuX0FDX1NMMTUwMF8uanBn.jpg",
           id: 3,
-          linkUrl: "shop/streaming",
+          linkUrl: "shop/streaming & recording",
         },
       ],
     };
