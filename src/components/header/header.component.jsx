@@ -1,6 +1,5 @@
 import React from "react";
-import "./header.styles.scss";
-import { Link } from "react-router-dom";
+import { NavigationContainer, LogoContainer, OptionsContainer, Option } from "./header.styles";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 import { signOutUser } from "../../firebase/firebase.utils";
 import { useContext } from "react";
@@ -13,34 +12,28 @@ const Header = () => {
   const { currentUser } = useContext(UserContext);
   const { isCartOpen, setIsCartOpen } = useContext(CartContext);
   return (
-    <div className="header">
-      <Link className="logo-container" to="/">
+    <NavigationContainer>
+      <LogoContainer to="/">
         <Logo className="logo"></Logo>
-      </Link>
-      <div className="options">
-        <Link className="option" to="/shop ">
-          SHOP
-        </Link>
-        <Link className="option" to="/contact">
-          CONTACT
-        </Link>
+      </LogoContainer>
+      <OptionsContainer>
+        <Option to="/shop ">SHOP</Option>
+        <Option to="/contact">CONTACT</Option>
         {currentUser ? (
           <div className="option" onClick={signOutUser}>
             SIGN OUT
           </div>
         ) : (
-          <Link className="option" to="/signin">
-            SIGN IN
-          </Link>
+          <Option to="/signin">SIGN IN</Option>
         )}
         <CartIcon
           onClick={() => {
             isCartOpen ? setIsCartOpen(false) : setIsCartOpen(true);
           }}
         ></CartIcon>
-      </div>
+      </OptionsContainer>
       {isCartOpen && <CartDropdown></CartDropdown>}
-    </div>
+    </NavigationContainer>
   );
 };
 
