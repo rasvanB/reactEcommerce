@@ -20,9 +20,9 @@ const Header = () => {
         <Option to="/shop ">SHOP</Option>
         <Option to="/contact">CONTACT</Option>
         {currentUser ? (
-          <div className="option" onClick={signOutUser}>
+          <Option to="/" onClick={signOutUser}>
             SIGN OUT
-          </div>
+          </Option>
         ) : (
           <Option to="/signin">SIGN IN</Option>
         )}
