@@ -1,4 +1,4 @@
-import { DropdownContainer, EmptyMessage, CartItemsContainer } from "./cart-dropdown.styles";
+import { DropdownContainer, EmptyMessage, CartItemsContainer } from "./cart-dropdown.styles.jsx";
 import CartItem from "../cart-item/cart-item.component";
 import CustomButton from "../custom-button/custom-button.component";
 import { CartContext } from "../../contexts/cart.context";

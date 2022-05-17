@@ -1,5 +1,5 @@
 import React from "react";
-import { ButtonContainer, InvertedButton, GoogleButton } from "./custom-button.styles";
+import { ButtonContainer, InvertedButton, GoogleButton } from "./custom-button.styles.jsx";
 const CustomButton = ({ children, isGoogleSignIn, isInverted, ...otherProps }) => {
   let button = <ButtonContainer {...otherProps}> {children} </ButtonContainer>;
   if (isGoogleSignIn) {

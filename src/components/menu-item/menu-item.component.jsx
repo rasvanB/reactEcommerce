@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { BackgroundImage, MenuItemContainer, Content } from "./menu-item.styles";
+import { BackgroundImage, MenuItemContainer, Content } from "./menu-item.styles.jsx";
 const MenuItem = ({ title, imageUrl, size, linkUrl }) => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
