@@ -1,5 +1,10 @@
 import React from "react";
-import { NavigationContainer, LogoContainer, OptionsContainer, Option } from "./header.styles.jsx";
+import {
+  NavigationContainer,
+  LogoContainer,
+  OptionsContainer,
+  Option,
+} from "./header.styles.jsx";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 import { signOutUser } from "../../firebase/firebase.utils";
 import { useContext } from "react";

@@ -1,5 +1,9 @@
 import styled from "styled-components";
-import { ButtonContainer, GoogleButton, InvertedButton } from "../custom-button/custom-button.styles";
+import {
+  ButtonContainer,
+  GoogleButton,
+  InvertedButton,
+} from "../custom-button/custom-button.styles";
 export const DropdownContainer = styled.div`
   position: absolute;
   width: 240px;
@@ -30,4 +34,3 @@ export const CartItemsContainer = styled.div`
   overflow: scroll;
   overflow-x: hidden;
 `;
-//    margin-top: auto;
