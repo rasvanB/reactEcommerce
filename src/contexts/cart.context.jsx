@@ -51,6 +51,7 @@ const CART_ACTION_TYPES = {
   CLEAR_ITEM_FROM_CART: "CLEAR_ITEM_FROM_CART",
   TOGGLE_CART_OPEN: "TOGGLE_CART_OPEN",
 };
+
 export const cartReducer = (state, action) => {
   const { type, payload } = action;
   switch (type) {
@@ -84,6 +85,7 @@ export const cartReducer = (state, action) => {
       throw new Error(`Unhandled type ${type}`);
   }
 };
+
 export const CartProvider = ({ children }) => {
   const [state, dispatch] = useReducer(cartReducer, INITIAL_STATE);
   const { isCartOpen, cartItems, cartCount, total } = state;
