@@ -8,13 +8,13 @@ import {
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 import { signOutUser } from "../../firebase/firebase.utils";
 import { useContext } from "react";
-import { UserContext } from "../../contexts/user.context";
 import { CartContext } from "../../contexts/cart.context";
 import CartDropdown from "../cart-dropdown/cart-dropdown.component";
 import CartIcon from "../cart-icon/cart-icon.component";
-
+import { useSelector } from "react-redux";
+import { selectCurrentUser } from "../../store/user/user.selectors.js";
 const Header = () => {
-  const { currentUser } = useContext(UserContext);
+  const currentUser = useSelector(selectCurrentUser);
   const { isCartOpen, setIsCartOpen } = useContext(CartContext);
   return (
     <NavigationContainer>
