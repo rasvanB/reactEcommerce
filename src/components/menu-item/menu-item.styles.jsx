@@ -13,7 +13,6 @@ export const Content = styled.div`
   flex-direction: column;
   align-items: center;
   background-color: black;
-  opacity: 0.7;
   justify-content: center;
   position: absolute;
   .title {
@@ -38,7 +37,9 @@ export const MenuItemContainer = styled.div`
     }
 
     ${Content} {
-      opacity: 0.9;
+      .title {
+        color: gray;
+      }
     }
   }
   min-width: 30%;
