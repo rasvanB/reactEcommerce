@@ -54,7 +54,6 @@ export const CartContext = createContext({
 
 export const cartReducer = (state = INITIAL_STATE, action) => {
   const { type, payload } = action;
-  console.log(state);
   switch (type) {
     case CART_ACTION_TYPES.ADD_ITEM_TO_CART:
       return {
