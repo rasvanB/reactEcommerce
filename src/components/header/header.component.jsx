@@ -7,15 +7,16 @@ import {
 } from "./header.styles.jsx";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 import { signOutUser } from "../../firebase/firebase.utils";
-import { useContext } from "react";
-import { CartContext } from "../../contexts/cart.context";
+import { setIsCartOpen } from "../../store/cart/cart.action.js";
 import CartDropdown from "../cart-dropdown/cart-dropdown.component";
 import CartIcon from "../cart-icon/cart-icon.component";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectCurrentUser } from "../../store/user/user.selectors.js";
+import { selectIsCartOpen } from "../../store/cart/cart.selector.js";
 const Header = () => {
+  const dispatch = useDispatch();
   const currentUser = useSelector(selectCurrentUser);
-  const { isCartOpen, setIsCartOpen } = useContext(CartContext);
+  const isCartOpen = useSelector(selectIsCartOpen);
   return (
     <NavigationContainer>
       <LogoContainer to="/">
@@ -33,7 +34,9 @@ const Header = () => {
         )}
         <CartIcon
           onClick={() => {
-            isCartOpen ? setIsCartOpen(false) : setIsCartOpen(true);
+            isCartOpen
+              ? dispatch(setIsCartOpen(false))
+              : dispatch(setIsCartOpen(true));
           }}
         ></CartIcon>
       </OptionsContainer>
