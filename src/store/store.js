@@ -10,10 +10,14 @@ const persistConfig = {
   blacklist: ["user"],
 };
 
+const middleware = [process.env.NODE_ENV === "development" && logger].filter(
+  Boolean
+);
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 export const store = configureStore({
   reducer: persistedReducer,
-  middleware: [logger],
+  middleware: middleware,
+  devTools: true,
 });
 
 export const persistor = persistStore(store);
