@@ -1,5 +1,3 @@
-import { createContext } from "react";
-
 const INITIAL_STATE = {
   isCartOpen: false,
   cartItems: [],
@@ -44,13 +42,6 @@ const removeCartItem = (cartItems, product) => {
 const clearCartItems = (cartItems, product) => {
   return cartItems.filter((item) => item.id !== product.id);
 };
-
-export const CartContext = createContext({
-  isCartOpen: false,
-  cartItems: [],
-  cartCount: 0,
-  total: 0,
-});
 
 export const cartReducer = (state = INITIAL_STATE, action) => {
   const { type, payload } = action;

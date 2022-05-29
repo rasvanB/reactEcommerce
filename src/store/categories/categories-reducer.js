@@ -1,9 +1,3 @@
-import { createContext } from "react";
-
-export const CategoriesContext = createContext({
-  categoriesArray: [],
-});
-
 const INITIAL_STATE = {
   categoriesArray: [],
 };
