@@ -53,7 +53,7 @@ const PaymentForm = () => {
       <FormContainer onSubmit={paymentHandler}>
         <h2>Credit card payment</h2>
         <CardElement />
-        <CustomButton disabled={isProcessingPayment} isInverted>
+        <CustomButton isLoading={isProcessingPayment} isInverted>
           Pay Now
         </CustomButton>
       </FormContainer>

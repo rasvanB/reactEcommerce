@@ -1,11 +1,34 @@
 import React from "react";
-import { ButtonContainer, InvertedButton, GoogleButton } from "./custom-button.styles.jsx";
-const CustomButton = ({ children, isGoogleSignIn, isInverted, ...otherProps }) => {
-  let button = <ButtonContainer {...otherProps}> {children} </ButtonContainer>;
+import {
+  ButtonContainer,
+  InvertedButton,
+  GoogleButton,
+  ButtonSpinner,
+} from "./custom-button.styles.jsx";
+const CustomButton = ({
+  children,
+  isGoogleSignIn,
+  isInverted,
+  isLoading,
+  ...otherProps
+}) => {
+  let button = (
+    <ButtonContainer disabled={isLoading} {...otherProps}>
+      {isLoading ? <ButtonSpinner /> : children}
+    </ButtonContainer>
+  );
   if (isGoogleSignIn) {
-    button = <GoogleButton {...otherProps}> {children} </GoogleButton>;
+    button = (
+      <GoogleButton disabled={isLoading} {...otherProps}>
+        {isLoading ? <ButtonSpinner /> : children}
+      </GoogleButton>
+    );
   } else if (isInverted) {
-    button = <InvertedButton {...otherProps}> {children} </InvertedButton>;
+    button = (
+      <InvertedButton disabled={isLoading} {...otherProps}>
+        {isLoading ? <ButtonSpinner /> : children}
+      </InvertedButton>
+    );
   }
   return <>{button}</>;
 };
