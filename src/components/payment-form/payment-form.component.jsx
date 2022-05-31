@@ -1,6 +1,9 @@
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
-import CustomButton from "../custom-button/custom-button.component";
-import { PaymentFormContainer, FormContainer } from "./payment-form.styles";
+import {
+  PaymentFormContainer,
+  FormContainer,
+  PaymentButton,
+} from "./payment-form.styles";
 import { useSelector } from "react-redux";
 import { selectCartTotal } from "../../store/cart/cart.selector";
 import { selectCurrentUser } from "../../store/user/user.selectors";
@@ -41,11 +44,9 @@ const PaymentForm = () => {
     if (paymentResult.error) {
       alert(paymentResult.error);
     } else {
-      alert(
-        paymentResult.paymentIntent.status === "succeeded"
-          ? "success"
-          : "failure"
-      );
+      if (paymentResult.paymentIntent.status === "succeeded") {
+        alert("Payment Successful");
+      }
     }
   };
   return (
@@ -53,9 +54,9 @@ const PaymentForm = () => {
       <FormContainer onSubmit={paymentHandler}>
         <h2>Credit card payment</h2>
         <CardElement />
-        <CustomButton isLoading={isProcessingPayment} isInverted>
+        <PaymentButton isLoading={isProcessingPayment} isInverted>
           Pay Now
-        </CustomButton>
+        </PaymentButton>
       </FormContainer>
     </PaymentFormContainer>
   );
