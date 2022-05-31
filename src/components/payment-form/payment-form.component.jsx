@@ -18,7 +18,26 @@ const PaymentForm = () => {
         amount: "500",
       }),
     }).then((res) => res.json());
-    console.log(response);
+    const {
+      intent: { client_secret },
+    } = response;
+    const paymentResult = await stripe.confirmCardPayment(client_secret, {
+      payment_method: {
+        card: elements.getElement(CardElement),
+        billing_details: {
+          name: "Jenny Rosen",
+        },
+      },
+    });
+    if (paymentResult.error) {
+      alert(paymentResult.error);
+    } else {
+      alert(
+        paymentResult.paymentIntent.status === "succeeded"
+          ? "success"
+          : "failure"
+      );
+    }
   };
   return (
     <PaymentFormContainer>
