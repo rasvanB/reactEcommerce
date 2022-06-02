@@ -5,7 +5,6 @@ import ShopPage from "./pages/shop/shop.component";
 import Header from "./components/header/header.component";
 import SignInPage from "./pages/sign-in-page/sign-in-page.component";
 import CheckoutPage from "./pages/checkout/checkout.component";
-import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { setCurrentUser } from "./store/user/user.action";
 import {
