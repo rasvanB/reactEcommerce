@@ -3,7 +3,7 @@ import {
   InvertedButton,
   GoogleButton,
   ButtonSpinner,
-} from "./custom-button.styles.jsx";
+} from "./custom-button.styles";
 import { FC } from "react";
 
 export type ButtonProps = {

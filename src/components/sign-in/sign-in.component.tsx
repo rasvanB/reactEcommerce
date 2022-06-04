@@ -13,7 +13,7 @@ const defaultFormFields = {
   email: "",
   password: "",
 };
-const SignIn = (props) => {
+const SignIn = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
 
@@ -21,13 +21,13 @@ const SignIn = (props) => {
     setFormFields(defaultFormFields);
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     try {
       await signInUserWithEmailAndPassword(email, password);
       resetFormFields();
-    } catch (error) {
+    } catch (error: any) {
       switch (error.code) {
         case "auth/wrong-password":
           alert("incorrect password");
@@ -41,7 +41,7 @@ const SignIn = (props) => {
     }
   };
 
-  const handleChange = (event) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setFormFields({ ...formFields, [name]: value });
   };
