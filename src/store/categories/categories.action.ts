@@ -1,10 +1,8 @@
-import { createAction } from "../store.utils";
+import { createAction, Action, ActionWithPayload } from "../store.utils";
 import { getCategoriesAndDocuments } from "../../firebase/firebase.utils";
-import { Action, ActionWithPayload } from "../store.utils";
+import { CATEGORIES_ACTION_TYPES, Category } from "./categories-reducer";
 import { ThunkDispatch } from "redux-thunk";
 import { AnyAction } from "redux";
-import { CATEGORIES_ACTION_TYPES } from "./categories-reducer";
-import { Category } from "./categories-reducer";
 
 export type FetchCategoriesStart =
   Action<CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_START>;
