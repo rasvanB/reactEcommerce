@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { selectCartCount } from "../../store/cart/cart.selector";
-import { ShoppingIcon, IconContainer, ItemCount } from "./cart-icon.styles.jsx";
+import { ShoppingIcon, IconContainer, ItemCount } from "./cart-icon.styles";
 const CartIcon = ({ ...otherProps }) => {
   const cartCount = useSelector(selectCartCount);
   return (
