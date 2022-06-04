@@ -1,11 +1,19 @@
-import React from "react";
 import {
   ButtonContainer,
   InvertedButton,
   GoogleButton,
   ButtonSpinner,
 } from "./custom-button.styles.jsx";
-const CustomButton = ({
+import { FC } from "react";
+
+export type ButtonProps = {
+  children: React.ReactNode;
+  isGoogleSignIn?: boolean;
+  isLoading?: boolean;
+  isInverted?: boolean;
+} & React.ButtonHTMLAttributes<HTMLButtonElement>;
+
+const CustomButton: FC<ButtonProps> = ({
   children,
   isGoogleSignIn,
   isInverted,
