@@ -1,7 +1,19 @@
-import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { BackgroundImage, MenuItemContainer, Content } from "./menu-item.styles.jsx";
-const MenuItem = ({ title, imageUrl, size, linkUrl }) => {
+import {
+  BackgroundImage,
+  MenuItemContainer,
+  Content,
+} from "./menu-item.styles";
+
+import { FC } from "react";
+type MenuItemProps = {
+  title: string;
+  imageUrl: string;
+  size?: string;
+  linkUrl: string;
+};
+
+const MenuItem: FC<MenuItemProps> = ({ title, imageUrl, size, linkUrl }) => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
