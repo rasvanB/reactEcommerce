@@ -1,1 +1,1 @@
-# Ecommerce react playground
+# Ecommerce website build with React
